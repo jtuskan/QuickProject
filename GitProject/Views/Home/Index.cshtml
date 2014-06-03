@@ -1,0 +1,30 @@
+﻿@model GitProject.Models.IndexViewModel
+@using GitProject.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+<h2>Projects</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @* This is a razor comment just fyi *@
+        @foreach (Project project in Model.Projects)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@Html.ActionLink("Edit", "Project", new { id = project.ProjectId })</td>
+            </tr>
+        }
+    </tbody>
+</table>
